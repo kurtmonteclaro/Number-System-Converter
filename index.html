@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number System Converter</title>
+    <link rel="shortcut icon" href="img/header.webp" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-b5K/XmRgULAXD0nyr1B5qFQfHCNo1NWyq4f5t95xYmABdyo/g3p+b+s8tDA3W5ew"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/52e878a9c6.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="heading">
+      <div class="taskbar">
+        <div class="left-icon">
+          <i class="fab fa-apple"></i>
+          <p>File</p>
+          <p>Edit</p>
+          <p>Shortcut</p>
+          <p>View</p>
+          <p>Window</p>
+          <p>Help</p>
+        </div>
+        <div class="right-icon">
+          <i class="fas fa-battery-full"></i>
+          <i class="fas fa-wifi"></i>
+          <i class="fas fa-search"></i>
+          <span>Mon April 1</span>
+          <span>9:00 AM</span>
+        </div>
+      </div>
+      <div class="box">
+        <div class="window">
+          <div class="title-bar">
+            <div class="dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="window-body">
+            <form id="calcuform" autocomplete="off">
+              <div class="form-group">
+                <label for="x">Enter a number</label>
+                <input type="text" id="text" name="x" />
+              </div>
+              <div class="form-group">
+                <label for="sell">From what base</label>
+                <select name="sell" id="sell" class="form-control">
+                  <option value="2">2 (Binary)</option>
+                  <option value="8">8 (Octal)</option>
+                  <option value="10">10 (Decimal)</option>
+                  <option value="16">16 (Hexadecimal)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="sel2">To what base</label>
+                <select name="sel2" id="sel2" class="form-control">
+                  <option value="2">2 (Binary)</option>
+                  <option value="8">8 (Octal)</option>
+                  <option value="10">10 (Decimal)</option>
+                  <option value="16">16 (Hexadecimal)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button type="button" title="Convert" class="btn btn-success" onclick="onconvert()">
+                  <span>=</span> Convert
+                </button>
+                <button type="reset" title="Reset" class="btn btn-secondary" onclick="onrst()">
+                  <span>×</span> Reset
+                </button>
+                <button type="button" title="Swap conversion" class="btn btn-secondary" onclick="swap()">
+                  <span>⇅</span> Swap
+                </button>
+              </div>
+              <div class="form-group">
+                <div><label for="y" id="ylabel">Result number</label></div>
+                <textarea rows="2" id="y" class="form-control form-control-lg" readonly=""></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="dock">
+        <div class="dock-container">
+          <li class="li-1">
+            <div class="name">Finder</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853981255cc36b3a37af_finder.png"
+              alt=""
+            />
+          </li>
+          <li class="li-2">
+            <div class="name">Siri</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853ff3bafbac60495771_siri.png"
+              alt=""
+            />
+          </li>
+          <li class="li-3">
+            <div class="name">LaunchPad</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853943597517f128b9b4_launchpad.png"
+              alt=""
+            />
+          </li>
+          <li class="li-4">
+            <div class="name">Contacts</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853743597518c528b9b3_contacts.png"
+              alt=""
+            />
+          </li>
+          <li class="li-5">
+            <div class="name">Notes</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853c849ec3735b52cef9_notes.png"
+              alt=""
+            />
+          </li>
+          <li class="li-6">
+            <div class="name">Reminders</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853d44d99641ce69afeb_reminders.png"
+              alt=""
+            />
+          </li>
+          <li class="li-7">
+            <div class="name">Photos</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853c55558a2e1192ee09_photos.png"
+              alt=""
+            />
+          </li>
+          <li class="li-8">
+            <div class="name">Messages</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853a55558a68e192ee08_messages.png"
+              alt=""
+            />
+          </li>
+          <li class="li-9">
+            <div class="name">FaceTime</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f708537f18e2cb27247c904_facetime.png"
+              alt=""
+            />
+          </li>
+          <li class="li-10">
+            <div class="name">Music</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853ba0782d6ff2aca6b3_music.png"
+              alt=""
+            />
+          </li>
+          <li class="li-11">
+            <div class="name">Podcasts</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853cc718ba9ede6888f9_podcasts.png"
+              alt=""
+            />
+          </li>
+          <li class="li-12">
+            <div class="name">TV</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f708540dd82638d7b8eda70_tv.png"
+              alt=""
+            />
+          </li>
+          <li class="li-12">
+            <div class="name">App Store</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853270b5e2ccfd795b49_appstore.png"
+              alt=""
+            />
+          </li>
+          <li class="li-14">
+            <div class="name">Safari</div>
+            <img
+              class="ico"
+              src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853ddd826358438eda6d_safari.png"
+              alt=""
+            />
+          </li>
+          <li class="li-bin li-15">
+            <div class="name">Bin</div>
+            <img
+              class="ico ico-bin"
+              src="https://findicons.com/files/icons/569/longhorn_objects/128/trash.png"
+              alt=""
+            />
+          </li>
+        </div>
+      </div>
+    </div>
+    <script src="formula.js"></script>
+  </body>
+</html>

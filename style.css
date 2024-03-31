@@ -1,0 +1,264 @@
+html {
+  scroll-behavior: smooth;
+}
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+}
+.taskbar {
+  width: 100vw;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 0;
+  background: linear-gradient(to right, rgba(229, 239, 249, 0.5), rgba(213, 220, 238, 0.5), rgba(229, 239, 249, 0.5));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.left-icon {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.left-icon i{
+  margin: 0 20px 0 6px;
+}
+.left-icon p{
+  margin: 0 12px;
+}
+.right-icon {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+.right-icon i{
+  font-size: 13px;
+  margin: 0 18px 0 6px;
+}
+.right-icon span{
+  padding-right: 8px;
+}
+body {
+  background: url(img/MontereyBackground.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.box {
+  margin-top: 23px;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  color: #322f31;
+  font-family: 'Poppins';
+}
+.window {
+  margin: auto;
+  background-color: #f3f1f4;
+  border: solid 0.1rem #6e6e6e4d;
+  box-shadow: 0 1rem 3rem #0000004d;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+.title-bar {
+  background-color: #f9f4f8;
+  border-bottom: solid 0.1rem #dcdcdc;
+}
+.dots {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+.dots span {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.6rem;
+  background-color: #cacaca;
+  border-radius: 50%;
+}
+.dots span:nth-child(1) {
+  background-color: #fc5653;
+}
+.dots span:nth-child(2) {
+  background-color: #33c748;
+}
+.dots span:nth-child(3) {
+  background-color: #fdbc40;
+}
+
+
+.window-body {
+  padding: 2rem 10rem;
+  margin-bottom: 1rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+div {
+  display: block;
+}
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-size: 16px;
+}
+textarea {
+  width: 100%;
+  resize: none;
+  padding: 0.5rem;
+}
+.btn-success {
+  background-color: #3cb371;
+  color: white;
+  font-size: 1.2rem;
+  padding: 6px;
+  border-radius: 20px;
+}
+.btn-secondary {
+  background-color: #616161;
+  color: white;
+  font-size: 1.2rem;
+  padding: 6px;
+  border-radius: 20px;
+}
+.form-control {
+  font-size: 18px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 6px;
+}
+
+textarea.form-control-lg {
+  width: 100%;
+  resize: none;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+.dock {
+  width: auto;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .dock-container {
+    padding: 3px;
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(83, 83, 83, 0.25);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .li-bin {
+      margin-left: 20px;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 0px 10px;
+    }
+    .li-1 {
+      &::after {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        content: '';
+        bottom: 2px;
+      }
+    }
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      vertical-align: bottom;
+      transition: 0.2s ease;
+      transform-origin: 50% 100%;
+      }
+      li:hover {
+        transform: scale(1.2); 
+      }
+      
+      .li-selected {
+        transform: scale(1.5); 
+      }
+      
+      .li-surrounding {
+        transform: scale(1.1); 
+      }
+      .name {
+        position: absolute;
+        top: -70px;
+        background: rgba(0, 0, 0, 0.5);
+        color: rgba(255, 255, 255, 0.9);
+        height: 10px;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        visibility: hidden;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          width: 0;
+          height: 0;
+          backdrop-filter: blur(13px);
+          -webkit-backdrop-filter: blur(13px);
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .ico {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.2s;
+      }
+      .ico-bin {
+        width: 94% !important;
+        height: 94% !important;
+        object-fit: cover;
+        transition: 0.2s;
+
+        &:hover {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through 15 {
+  .li-#{$i}:hover {
+    .name {
+      visibility: visible !important;
+    }
+  }
+}
